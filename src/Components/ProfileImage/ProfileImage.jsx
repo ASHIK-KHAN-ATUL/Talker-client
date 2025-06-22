@@ -35,7 +35,7 @@ const ProfileImage = () => {
             return res.data;
         }
     })
-    console.log('Followers:', followers)
+    // console.log('Followers:', followers)
 
     
     if(isLoading){

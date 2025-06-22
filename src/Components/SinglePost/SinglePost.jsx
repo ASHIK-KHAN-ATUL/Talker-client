@@ -22,7 +22,7 @@ const SinglePost = () => {
 
 
     const {data:singlePost=[], refetch} = useQuery({
-        queryKey: ['singlePost'],
+        queryKey: ['singlePost',id],
         queryFn: async()=> {
             const res = await axiosPublic.get(`/posts/singlepost/${id}`);
             return res.data; 
@@ -34,17 +34,17 @@ const SinglePost = () => {
     const handleLike = async(postId) => {
         if(!user || !mainUser?._id){
             toast.error('Please Login To Like Post');
-            return
+            return;
         }
         // console.log(postId);
-        axiosSecure.patch(`/posts/${postId}/like`, {
+        await axiosSecure.patch(`/posts/${postId}/like`, {
             userId: mainUser?._id
         });
         refetch();
     }
     // console.log('user for like', mainUser?._id)
 
-    const {data:mainUser=[]} = useQuery({
+    const {data:mainUser={}} = useQuery({
         queryKey: ['mainUser'],
         enabled: !!user?.email,
         queryFn: async() => {
@@ -66,7 +66,7 @@ const SinglePost = () => {
             createAt: new Date()
         }
 
-        axiosSecure.post('/comments', newComment)
+        await axiosSecure.post('/comments', newComment)
         .then(res => {
             if(res.data.insertedId){
                 toast.success('Comment Send Success');
@@ -81,7 +81,7 @@ const SinglePost = () => {
 
     // Get the Comments
     const {data:comments=[], refetch:refetchComments} = useQuery({
-        queryKey: ['comments'],
+        queryKey: ['comments',id],
         queryFn: async()=> {
             const res = await axiosSecure.get(`/comments/post/${id}`)
             return res.data
@@ -123,7 +123,7 @@ const SinglePost = () => {
                 {/* Like and  Comment */}
                 <div className=' flex gap-20 text-xl'>
                     <div className='flex gap-2'>
-                        <button onClick={() => {handleLike(singlePost._id), refetch()}}>{<FaRegHeart className={`cursor-pointer ${singlePost?.likes?.includes(mainUser._id) ? 'text-red-500' : ''}`} />}
+                        <button onClick={() => {handleLike(singlePost._id)}}>{<FaRegHeart className={`cursor-pointer ${singlePost?.likes?.includes(mainUser._id) ? 'text-red-500' : ''}`} />}
                         </button>    
                         <span className='mb-1'>{singlePost?.likes?.length}</span>                           
                     </div>
@@ -148,7 +148,7 @@ const SinglePost = () => {
 
                         (
                             comments.map((comment) => (
-                                <div key={comment._id} className='flex gap-5 text-sm items-center '>
+                                <div key={comment._id} className='flex gap-5 text-sm items-center py-1 '>
                                     <img src={comment.userImage} className='w-10 h-10 rounded-full object-cover border-2 border-[#FF6B6B]/50' alt="Image" />
                                     <div>
                                         <div className='flex gap-5'>

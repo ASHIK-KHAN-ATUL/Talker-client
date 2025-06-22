@@ -3,6 +3,7 @@ import useAuth from '../../Hooks/useAuth';
 import ShowPostByME from '../ShowPostByME/ShowPostByME';
 import PostedImage from '../PostedImage/PostedImage';
 import MyFollowers from '../MyFollowers/MyFollowers';
+import MyFollowing from '../MyFollowing/MyFollowing';
 
 const ProfileTab = () => {
 
@@ -41,6 +42,11 @@ const ProfileTab = () => {
             {/* My Followers  */}
             {
                 activeTab === 'Followers' && <MyFollowers></MyFollowers>
+            }
+
+            {/* My Following */}
+            {
+                activeTab === 'Following' && <MyFollowing></MyFollowing>
             }
 
         </div>
