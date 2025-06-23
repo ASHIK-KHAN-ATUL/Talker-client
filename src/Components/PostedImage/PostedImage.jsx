@@ -17,7 +17,7 @@ const PostedImage = () => {
             return res.data;
         }
     })
-    console.log('Posts:', posts)
+    // console.log('Posts:', posts);
 
     if (!posts || posts.length === 0) {
     return (
@@ -41,7 +41,7 @@ const PostedImage = () => {
                 <img
                     key={post._id}
                     src={post?.postImage}
-                    alt="Posted"
+                    alt="Posted Image"
                     className="rounded object-cover h-48 w-48 shadow-md border border-[#FF6B6B]"
                 />
             ))}

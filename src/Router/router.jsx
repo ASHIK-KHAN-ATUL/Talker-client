@@ -8,6 +8,8 @@ import Register from "../Components/Register.jsx/Register";
 import Profile from "../Pages/Profile/Profile";
 import SinglePost from "../Components/SinglePost/SinglePost";
 import VisitProfile from "../Pages/VisitProfile/VisitProfile";
+import ProfileInfo from "../Pages/ProfileInfo/ProfileInfo";
+import ProfileInfoEdit from "../Pages/ProfileInfo/ProfileInfoEdit/ProfileInfoEdit";
 
 
 export const router = createBrowserRouter([
@@ -38,6 +40,14 @@ export const router = createBrowserRouter([
         {
           path: '/posts/:id',
           element: <SinglePost></SinglePost>
+        },
+        {
+          path: '/myProfile/info',
+          element: <ProfileInfo></ProfileInfo>
+        },
+        {
+          path:'/myProfile/info/edit',
+          element: <ProfileInfoEdit></ProfileInfoEdit>
         }
     ]
   },

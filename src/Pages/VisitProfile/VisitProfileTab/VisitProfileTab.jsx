@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import VisitProfilePosts from '../VisitProfilePosts/VisitProfilePosts';
 import VisitProfilePostedPhoto from '../VisitProfilePostedPhoto/VisitProfilePostedPhoto';
+import VisitedProfileFollowers from '../VisitedProfileFollowers/VisitedProfileFollowers';
+import VisitedProfileFollowing from '../VisitedProfileFollowing/VisitedProfileFollowing';
 
 const VisitProfileTab = ({id}) => {
 
@@ -24,15 +26,29 @@ const VisitProfileTab = ({id}) => {
                 }
             </div>
 
+            
+
             {/* Show Content */}
 
             {/* Post */}
             {
                 activeTab === "Post" && <VisitProfilePosts id={id}></VisitProfilePosts>
             }
+
             {/* Photos */}
             {
                 activeTab === "Photos" && <VisitProfilePostedPhoto id={id}></VisitProfilePostedPhoto>
+            }
+
+            {/* Following */}
+            {
+                activeTab === "Following" && <VisitedProfileFollowing id={id}></VisitedProfileFollowing>
+            }
+
+
+            {/* Followers */}
+            {
+                activeTab === "Followers" && <VisitedProfileFollowers id={id}></VisitedProfileFollowers>
             }
 
 

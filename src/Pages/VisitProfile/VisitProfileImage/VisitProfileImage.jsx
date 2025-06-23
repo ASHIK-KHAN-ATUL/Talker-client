@@ -14,7 +14,7 @@ const VisitProfileImage = ({id}) => {
     const {data: visitUser ={}, refetch} = useQuery({
         queryKey: ['visitUser', id],
         queryFn: async() => {
-            const res = await axiosPublic.get(`users/user/visit/${id}`);
+            const res = await axiosPublic.get(`/users/user/visit/${id}`);
             return res.data;
         }
     })
@@ -24,9 +24,10 @@ const VisitProfileImage = ({id}) => {
         const followingId = id;
         const res = await axiosSecure.patch(`users/user/follow/${user?.email}`,{followingId});
         if(res.data.success){
-            console.log(res)
+            // console.log(res);
             toast.success(`${visitUser.name} ${res.data.following ? 'Followed by' : 'Unfollowed by'} You`);
             mainRefetch();
+            followerRef();
         }
     }
 
@@ -39,6 +40,15 @@ const VisitProfileImage = ({id}) => {
         }
     })
     // console.log('mainUser :', mainUser);
+
+    const {data:followers=[], refetch:followerRef} = useQuery({
+        queryKey: ['followers', id],
+        enabled: !!id,
+        queryFn: async()=>{
+            const res = await axiosSecure.get(`/users/user/visit/${id}/followers`);
+            return res.data;
+        }
+    })
 
     return (
             <div className=' mb-10'>
@@ -64,7 +74,7 @@ const VisitProfileImage = ({id}) => {
 
                             <div className='flex flex-col md:flex-row md:gap-5 md;items-center'>
                                 <div className='flex  gap-5 font-semibold'> 
-                                    <p>Followers {visitUser?.followers?.length}</p>
+                                    <p>Followers {followers?.length}</p>
                                     <p>Following {visitUser?.following?.length}</p>
                                 </div>
 
