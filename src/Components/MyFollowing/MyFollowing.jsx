@@ -48,7 +48,7 @@ const MyFollowing = () => {
     }
 
     return (
-        <div className='w-[95%] max-w-4xl mx-auto bg-white/50 p-5 flex flex-col gap-3'>
+        <div className='w-[95%] max-w-4xl mx-auto bg-white/50 p-2 lg:p-5 flex flex-col gap-3'>
             {followingUser.map(flw => 
                 (
                     <div key={flw._id} className='flex items-center bg-red-500/30 justify-between p-2 rounded-md'>

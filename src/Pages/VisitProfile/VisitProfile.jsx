@@ -6,12 +6,12 @@ import VisitProfileTab from './VisitProfileTab/VisitProfileTab';
 const VisitProfile = () => {
 
     const {id} = useParams();
-    console.log('Visit id:',id);
+    // console.log('Visit id:',id);
 
     return (
-        <div className='min-h-screen'>
+        <div className='pb-10'>
             <VisitProfileImage id={id}></VisitProfileImage>
-            <VisitProfileTab></VisitProfileTab>
+            <VisitProfileTab id={id}></VisitProfileTab>
         </div>
     );
 };

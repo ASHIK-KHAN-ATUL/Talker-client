@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import VisitProfilePosts from '../VisitProfilePosts/VisitProfilePosts';
+import VisitProfilePostedPhoto from '../VisitProfilePostedPhoto/VisitProfilePostedPhoto';
 
-const VisitProfileTab = () => {
+const VisitProfileTab = ({id}) => {
 
+    // console.log('Vister id:',id);
     const profileTab = ["Post", "Photos", "Following", "Followers"]
     const [activeTab, setActiveTab] = useState('Post');
 
@@ -9,7 +12,7 @@ const VisitProfileTab = () => {
         <div className={`max-w-4xl mx-auto mt-32 `}>
 
             {/* Tabs  */}
-            <div role="tablist" className="tabs tabs-border">
+            <div role="tablist" className="tabs tabs-border mb-10">
                 {
                     profileTab.map((tab, idx) =>
                         <a 
@@ -22,6 +25,15 @@ const VisitProfileTab = () => {
             </div>
 
             {/* Show Content */}
+
+            {/* Post */}
+            {
+                activeTab === "Post" && <VisitProfilePosts id={id}></VisitProfilePosts>
+            }
+            {/* Photos */}
+            {
+                activeTab === "Photos" && <VisitProfilePostedPhoto id={id}></VisitProfilePostedPhoto>
+            }
 
 
         </div>
