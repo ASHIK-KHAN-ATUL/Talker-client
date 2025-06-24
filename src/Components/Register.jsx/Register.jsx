@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import { toast } from 'react-toastify';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
+import GoogleLogin from '../../Shared/GoogleLogin';
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -150,6 +151,10 @@ const Register = () => {
                 </form>
                 <div className='mt-5'>
                     <p className='text-center text-sm'>Already have an account? <Link className='text-green-500' to={'/login'}>Login</Link></p>
+                </div>
+
+                <div className='flex justify-center items-center'>
+                    <GoogleLogin></GoogleLogin>
                 </div>
             </div>
         </div>

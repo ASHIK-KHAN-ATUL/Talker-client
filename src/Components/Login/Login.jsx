@@ -3,6 +3,7 @@ import logo from '../../assets/Mainlogo.png'
 import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import { toast } from 'react-toastify';
+import GoogleLogin from '../../Shared/GoogleLogin';
 
 const Login = () => {
 
@@ -66,6 +67,9 @@ const Login = () => {
                 </form>
                 <div className='mt-5'>
                     <p className='text-center text-sm'>Don't have an account? <Link className='text-green-500' to={'/register'}>Register</Link></p>
+                </div>
+                <div className='flex justify-center items-center'>
+                    <GoogleLogin></GoogleLogin>
                 </div>
             </div>
         </div>

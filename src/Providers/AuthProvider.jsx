@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { app } from "../Firebase/Firebase.config";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 
@@ -16,10 +16,18 @@ const AuthProvider = ({children}) => {
         const stordTheme = localStorage.getItem('theme');
         return stordTheme === 'dark'
     });
+    const googleProvider = new GoogleAuthProvider();
 
     useEffect(()=>{
         localStorage.setItem('theme', isDark ? 'dark': 'light')
     } ,[isDark])
+
+
+    // Connent eith google
+    const googleSign = () => {
+        setLoading(true);
+        return signInWithPopup(auth, googleProvider)
+    }
 
 
     // For Register
@@ -77,7 +85,8 @@ const AuthProvider = ({children}) => {
         logout,
         updateUserProfile,
         isDark,
-        setIsDark
+        setIsDark,
+        googleSign
     }
 
     return (
