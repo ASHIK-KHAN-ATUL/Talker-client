@@ -60,7 +60,7 @@ const GoogleLogin = () => {
     <div className="mt-6 text-center">
       <button
         onClick={handleWithGoogle}
-        className="flex items-center justify-center gap-2 border border-[#FF6B6B] hover:bg-[#FF6B6B] hover:text-white text-[#FF6B6B] py-2 px-4 rounded-md font-semibold transition"
+        className="flex items-center justify-center cursor-pointer gap-2 border border-[#FF6B6B] hover:bg-[#FF6B6B] hover:text-white text-[#FF6B6B] py-2 px-4 rounded-md font-semibold transition"
       >
         <FcGoogle className="text-2xl" /> Register with Google
       </button>
