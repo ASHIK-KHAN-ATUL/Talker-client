@@ -26,7 +26,7 @@ const Register = () => {
         const password = form.get('password')
 
         const user = {name, email,imageFile, password}
-        console.log(user)
+        // console.log(user);
 
 
         const formData = new FormData();
@@ -37,7 +37,7 @@ const Register = () => {
         })
 
         const result = await res.json();
-        console.log(result);
+        // console.log(result);
 
         if(result?.success){
             const photoUrl = result.data.display_url;
@@ -46,7 +46,7 @@ const Register = () => {
             createUser(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                // console.log(loggedUser);
                 toast.success('Account Create successfully')
 
 
@@ -84,7 +84,7 @@ const Register = () => {
             axiosPublic.post('/users', userInfo)
             .then(res => {
                 if(res.data.insertedId){
-                    console.log('User Added to daatabase')
+                    // console.log('User Added to daatabase')
                 }
             })
         })

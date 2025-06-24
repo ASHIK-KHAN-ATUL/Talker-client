@@ -15,7 +15,7 @@ const GoogleLogin = () => {
     const handleWithGoogle = () => {
         googleSign()
         .then(res =>{
-            console.log(res.user)
+            // console.log(res.user)
             const user = res.user;
 
             const userInfo = {
@@ -44,7 +44,7 @@ const GoogleLogin = () => {
 
                 axiosPublic.post('/users', userInfo)
                 .then(res => {
-                    console.log(res.data);
+                    // console.log(res.data);
                         if (res.data.insertedId || res.data.message === 'user already exists') {
                             navigate('/');
                         }

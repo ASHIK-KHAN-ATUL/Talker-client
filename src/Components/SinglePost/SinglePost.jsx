@@ -87,7 +87,7 @@ const SinglePost = () => {
             return res.data
         }
     })
-    console.log('Comment: ', comments)
+    // console.log('Comment: ', comments);
 
 
     return (
