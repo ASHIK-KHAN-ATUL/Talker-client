@@ -19,7 +19,7 @@ const ProfileImage = () => {
 
     const {data: mainUser=[], refetch, isLoading} = useQuery({
         queryKey:['mainUser'],
-        enabled: !user?.email,
+        enabled: !!user?.email,
         queryFn: async()=> {
             const res = await axiosSecure.get(`/users/user/${user?.email}` )
             return res.data;
@@ -93,7 +93,12 @@ const ProfileImage = () => {
                     <div className='absolute w-full flex items-center gap-10 -bottom-24'>
 
                         {/* profile photo */}
-                        <img src={mainUser?.image} alt="" className='h-32 w-32 object-cover rounded-full border-4 border-[#FF6B6B] transform shadow-xl bg-gray-400'/>
+                        <div className=' flex items-center justify-center relative '>
+
+                            <div className='h-[130px] w-[130px] border border-t-cyan-400 border-[#FF6B6B]  rounded-full absolute animate-spin shadow-sm shadow-cyan-500'></div>
+
+                            <img src={mainUser?.image} alt="" className='h-32 w-32 object-cover rounded-full  transform shadow-xl bg-gray-400'/>
+                        </div>
 
                         <div className='pt-10'>
                             <h1 className='text-3xl font-semibold'>{mainUser.name}</h1>

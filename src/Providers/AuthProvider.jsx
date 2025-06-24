@@ -12,7 +12,14 @@ const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const axiosPublic = useAxiosPublic();
-    const [isDark, setIsDark] = useState(false);
+    const [isDark, setIsDark] = useState(()=>{
+        const stordTheme = localStorage.getItem('theme');
+        return stordTheme === 'dark'
+    });
+
+    useEffect(()=>{
+        localStorage.setItem('theme', isDark ? 'dark': 'light')
+    } ,[isDark])
 
 
     // For Register

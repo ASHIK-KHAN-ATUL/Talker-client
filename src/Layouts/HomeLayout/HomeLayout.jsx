@@ -8,7 +8,7 @@ const HomeLayout = () => {
     const {isDark, setIsDark} = useAuth();
 
     return (
-        <div className={` min-h-screen ${isDark ? 'bg-black/70 text-white' : ' bg-gray-200 text-black'}`}>
+        <div className={` min-h-screen ${isDark ? 'bg-black text-white' : ' bg-red-50 text-black'}`}>
             <Navbar></Navbar>
             <Outlet></Outlet>
         </div>

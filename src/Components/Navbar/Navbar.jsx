@@ -52,7 +52,7 @@ const Navbar = () => {
     }
 
     const toggleTheme = () => {
-        setIsDark(prev => !prev)
+        setIsDark(prev => !prev);
     }
 
     return (
@@ -92,20 +92,17 @@ const Navbar = () => {
 
                     <div onClick={(e) => e.stopPropagation()}  className={`p-5 w-[300px] bg-[#FF6B6B]/95 border-2 absolute  z-50 rounded right-0 top-10 font-semibold flex flex-col gap-5 `}>
 
-                        <div onClick={()=>{handleProfileinfo(); setIsDot(false);}} className={`flex justify-between px-4 items-center text-xl  border p-2 rounded`}> 
-                            <span className=''><FaRegUserCircle className='text-3xl' /></span>
-                            <span className=''>Information</span>
-                        </div>
+
 
                         <div className={`flex gap-2 justify-between px-4 items-center text-xl  border p-2 rounded`}> 
-                            <span className='mr-2'>Theme :</span>
+                            <span className='mr-2 text-base'>Theme :</span>
                             <span><MdLightMode /></span>
                             <input type="checkbox" value="synthwave" className="toggle theme-controller"  onChange={toggleTheme}/>
                             <span><MdDarkMode /></span>
                         </div>
 
                         <div className='flex items-center justify-between border p-1 rounded'>
-                            <img src={user?.photoURL} className='h-12 w-12 object-cover rounded-full border-2' alt="" /> 
+                            <img src={user?.photoURL} className='h-10 w-10 object-cover rounded-full border-2' alt="" /> 
                             <p>{user?.displayName}</p>
                             <button onClick={() => {handleLogout() ; setIsDot(false)}} className='btn btn-outline btn-sm hover:bg-cyan-400 hover:border-none duration-500'>Logout</button>
                         </div>

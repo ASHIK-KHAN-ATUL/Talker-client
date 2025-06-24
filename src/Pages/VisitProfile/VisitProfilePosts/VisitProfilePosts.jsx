@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
-import { FaRegCommentDots, FaRegHeart } from 'react-icons/fa';
+import { FaHeart, FaRegCommentDots, FaRegHeart } from 'react-icons/fa';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
@@ -82,7 +82,11 @@ const VisitProfilePosts = ({id}) => {
                         {/* Like and  Comment */}
                         <div className=' flex gap-20 text-xl'>
                             <div className='flex gap-2'>
-                                <button onClick={() => {handleLike(post._id), refetch()}}>{<FaRegHeart className={` cursor-pointer ${post.likes.includes(mainUser._id) ? 'text-red-500' : ''}`} />}</button>    
+                                <button className='cursor-pointer' onClick={() => {handleLike(post._id), refetch()}}>                                  
+                                {
+                                    post.likes?.includes(mainUser._id) ?  <FaHeart className='text-red-500' /> : <FaRegHeart/>
+                                }
+                                </button>    
                                 <span className='mb-1'>{post.likes.length}</span>                           
                             </div>
                             <div>

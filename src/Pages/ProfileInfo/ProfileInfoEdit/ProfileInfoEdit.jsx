@@ -47,7 +47,7 @@ const ProfileInfoEdit = () => {
         .then(res => {
             if (res.data.modifiedCount > 0) {
             toast.success('Profile updated successfully');
-            navigate('/myProfile/info')
+            navigate(`/profile/${mainUser._id}`)
             refetch();
             } else {
             toast.info('No changes made');
@@ -67,7 +67,7 @@ const ProfileInfoEdit = () => {
           <input
             type="text"
             name="name"
-            className="border-b-2 p-2 border-violet-500 w-full bg-transparent focus:outline-none"
+            className="border-b-2 p-2 border-[#FF6B6B] w-full bg-transparent focus:outline-none"
             value={formData.name}
             onChange={handleChange}
           />
@@ -77,7 +77,7 @@ const ProfileInfoEdit = () => {
           <label className="label text-black font-semibold">Bio</label>
           <textarea
             name="bio"
-            className="border-b-2 p-2 border-violet-500 w-full bg-transparent focus:outline-none"
+            className="border-b-2 p-2 border-[#FF6B6B] w-full bg-transparent focus:outline-none"
             rows={1}
             value={formData.bio}
             onChange={handleChange}
@@ -89,7 +89,7 @@ const ProfileInfoEdit = () => {
           <input
             type="text"
             name="location"
-            className="border-b-2 p-2 border-violet-500 w-full bg-transparent focus:outline-none"
+            className="border-b-2 p-2 border-[#FF6B6B] w-full bg-transparent focus:outline-none"
             value={formData.location}
             onChange={handleChange}
           />
@@ -99,7 +99,7 @@ const ProfileInfoEdit = () => {
           <label className="label text-black font-semibold">Gender</label>
           <select
             name="gender"
-            className="border-b-2 p-2 border-violet-500 w-full bg-transparent focus:outline-none"
+            className="border-b-2 p-2 border-[#FF6B6B] w-full bg-transparent focus:outline-none"
             value={formData.gender}
             onChange={handleChange}
           >
@@ -114,7 +114,7 @@ const ProfileInfoEdit = () => {
           <input
             type="date"
             name="birthdate"
-            className="border-b-2 p-2 border-violet-500 w-full bg-transparent focus:outline-none"
+            className="border-b-2 p-2 border-[#FF6B6B] w-full bg-transparent focus:outline-none"
             value={formData.birthdate}
             onChange={handleChange}
           />
@@ -144,9 +144,11 @@ const ProfileInfoEdit = () => {
           </label>
         </div>
 
-        <button type="submit" className="btn bg-[#FF6B6B] text-white w-full">
+        <div className='w-full flex justify-center mt-10'>
+          <button type="submit" className="btn bg-[#FF6B6B] border-none text-white w-1/2 ">
           Save Changes
         </button>
+        </div>
 
       </form>
     </div>

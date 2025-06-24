@@ -29,7 +29,7 @@ const MyFollowers = () => {
             return res.data;
         }
     })
-    console.log('Followers:', followers)
+    // console.log('Followers:', followers)
 
     if (!followers || followers.length === 0) {
     return (

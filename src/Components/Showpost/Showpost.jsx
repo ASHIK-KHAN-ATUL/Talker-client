@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import { FaRegCommentDots, FaRegHeart } from 'react-icons/fa';
+import { FaHeart, FaRegCommentDots, FaRegHeart } from 'react-icons/fa';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useAuth from '../../Hooks/useAuth';
 import { toast } from 'react-toastify';
@@ -80,7 +80,11 @@ const Showpost = () => {
                         {/* Like and  Comment */}
                         <div className=' flex gap-20 text-xl'>
                             <div className='flex gap-2'>
-                                <button onClick={() => {handleLike(post._id); refetch()}}>{<FaRegHeart className={` cursor-pointer ${post.likes.includes(mainUser._id) ? 'text-[#FF6B6B]' : ''}`} />}</button>    
+                                <button className='cursor-pointer' onClick={() => {handleLike(post._id); refetch()}}>
+                                    {
+                                        post.likes?.includes(mainUser._id) ?  <FaHeart className='text-red-500' /> : <FaRegHeart/>
+                                    }
+                                </button>    
                                 <span className='mb-1'>{post.likes.length}</span>                           
                             </div>
                             <div>

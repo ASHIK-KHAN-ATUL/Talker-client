@@ -1,12 +1,54 @@
-# React + Vite
+# 🗨️ Talker - AI-Free Social Microblogging Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Talker** is a full-stack social microblog/chat platform built with React, Vite, Node.js, Express, and MongoDB. It allows users to share posts, interact with others, view profiles, and manage their own information. The platform supports profile privacy, dark mode, and responsive UI — all without any AI dependency.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
 
-## Expanding the ESLint configuration
+- ⚛️ React + Vite (Frontend)
+- 🎨 Tailwind CSS (Styling)
+- 🌐 Express.js (Backend)
+- 🍃 MongoDB (Database)
+- 🔒 JWT Authentication
+- 📦 TanStack React Query
+- 🔁 Axios for API Calls
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ✨ Features
+
+- 🔐 User Authentication (Register/Login)
+- 👤 Profile System (Cover + Avatar)
+- 📝 Microblog Posts (Text + Image)
+- ❤️ Like / 💬 Comment system
+- 🔄 Dark/Light Mode toggle
+- 📱 Fully Responsive UI
+- 👁️ Visit Other Users’ Profile by Clicking Post Author's Image
+  - 🔄 View Posts, Photos, Followers, Following
+  - ℹ️ If profile is locked, user content is hidden
+- 🙋‍♂️ View Your Own Profile and Information
+  - ✏️ Edit Personal Info (name, bio, birthdate, etc.)
+
+---
+
+🛠 Backend Overview (API)
+Note: Backend runs in a separate repository/project
+
+🧑 User Management (Profile CRUD, Follow System)
+
+📄 Post Management (Post CRUD, likes, comments)
+
+🔐 JWT-Based Protected Routes
+
+📸 Media upload via public URLs
+
+Ensure your .env contains the correct base URL for API calls.
+
+🧑‍💻 Developer Notes
+All user and profile operations are role-less (general user-based)
+
+Profile lock system is enforced in UI for privacy
+
+You can expand this with chat, notifications, or AI in the future
+

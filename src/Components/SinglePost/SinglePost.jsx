@@ -5,7 +5,7 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import { FaRegCommentDots, FaRegHeart } from 'react-icons/fa';
+import { FaHeart, FaRegCommentDots, FaRegHeart } from 'react-icons/fa';
 import useAuth from '../../Hooks/useAuth';
 import { IoIosSend } from 'react-icons/io';
 import { toast } from 'react-toastify';
@@ -123,7 +123,10 @@ const SinglePost = () => {
                 {/* Like and  Comment */}
                 <div className=' flex gap-20 text-xl'>
                     <div className='flex gap-2'>
-                        <button onClick={() => {handleLike(singlePost._id)}}>{<FaRegHeart className={`cursor-pointer ${singlePost?.likes?.includes(mainUser._id) ? 'text-red-500' : ''}`} />}
+                        <button className='cursor-pointer' onClick={() => {handleLike(singlePost._id)}}>
+                            {
+                                singlePost?.likes?.includes(mainUser._id) ?  <FaHeart className='text-red-500' /> : <FaRegHeart/>
+                            }
                         </button>    
                         <span className='mb-1'>{singlePost?.likes?.length}</span>                           
                     </div>
@@ -136,7 +139,7 @@ const SinglePost = () => {
                 <div className='flex items-center justify-between p-2 bg-white/40 rounded-2xl my-3 px-5'>
                     <img className='h-10 w-10 rounded-full border border-white object-cover' src={mainUser.image} alt="" />
                     <textarea value={commentText} onChange={(e)=> setCommentText(e.target.value)} className='rounded-xl border border-[#FF6B6B] outline-0 w-[80%] p-2 font-medium' name="" id="" rows={1}></textarea>
-                    <span onClick={handleCommentSubmit}><IoIosSend className='text-3xl cursor-pointer text-[#FF6B6B]' /></span>
+                    <button onClick={handleCommentSubmit}><IoIosSend className='text-3xl cursor-pointer text-[#FF6B6B] btn bg-transparent border-none btn-sm shadow-none' /></button>
                 </div>
 
                 {/* Show commrent */}
